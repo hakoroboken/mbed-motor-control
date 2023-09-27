@@ -71,7 +71,6 @@ int main() {
                 for (auto i = 0; i < 4; i++) {
                     motors[i].SET_SPEED = static_cast<int16_t>((rcv_msg.data[i * 2] << 8) | rcv_msg.data[i * 2 + 1]);
                 }
-                printf("m1:%d,m2:%d,m3:%d,m4:%d\n", motors[0].SET_SPEED, motors[1].SET_SPEED, motors[2].SET_SPEED, motors[3].SET_SPEED);
             }
         }
 
@@ -86,6 +85,7 @@ int main() {
             }
             can.write(msg);
             newCanMessage = false;
+            printf("m1:%d,m2:%d,m3:%d,m4:%d\n", motors[0].SET_SPEED, motors[1].SET_SPEED, motors[2].SET_SPEED, motors[3].SET_SPEED);
         }
     }
 }
